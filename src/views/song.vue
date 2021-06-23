@@ -78,7 +78,7 @@ export default {
       default: '',
     },
     genre: {
-      type: Array,
+      type: String,
       default: '',
     },
     author: '',

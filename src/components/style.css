@@ -3,6 +3,16 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,regular,500,600,700&display=swap&subset=cyrillic-ext");
 
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,regular,700&display=swap&subset=cyrillic-ext");
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 
 * {
   padding: 0px;
@@ -922,6 +932,8 @@ body.ie ._ibg img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .right-panel__bell-btn {
@@ -931,6 +943,8 @@ body.ie ._ibg img {
   padding: 6px 8px;
   border-radius: 50%;
   overflow: hidden;
+  max-width: 31px;
+  max-height: 31px;
   margin-right: 8px;
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
@@ -938,7 +952,7 @@ body.ie ._ibg img {
 }
 
 .right-panel__bell-btn:hover img {
-  width: 110%;
+  /*width: 110%;*/
 }
 
 .right-panel__profile-btn {
@@ -1691,9 +1705,21 @@ body.ie ._ibg img {
   box-sizing: border-box;
   color: #8f8f8f;
 }
-
 .calendar__square._grayed:hover {
+  background-color: #aeaeae;
+}
+.calendar__square._empty {
+  border: 1px solid #8f8f8f;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #8f8f8f;
+}
+.calendar__square._empty:hover {
   background-color: #fff;
+  border: 1px solid #8f8f8f;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #8f8f8f;
 }
 
 .calendar__square._per::after {
@@ -1798,6 +1824,8 @@ body.ie ._ibg img {
   padding: 14px 0 10px 54px;
   position: relative;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }
 
 .listing__item:hover {
@@ -1832,6 +1860,11 @@ body.ie ._ibg img {
 .listing__item._per::before {
   content: "";
   background-color: #26aa33;
+}
+
+.listing__item._my::before {
+  content: "";
+  background-color: blue;
 }
 
 .listing__item._fav::after {

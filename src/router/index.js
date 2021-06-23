@@ -35,6 +35,12 @@ const routes = [
     component: () => import('@/views/testcalendar.vue'),
   },
   {
+    path: '/addevents',
+    name: 'addevents',
+    meta: { layout: 'main' },
+    component: () => import('@/views/addevents.vue'),
+  },
+  {
     path: '/login',
     name: 'login',
     meta: { layout: 'empty' },

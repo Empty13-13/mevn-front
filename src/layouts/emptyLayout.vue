@@ -7,6 +7,32 @@
   </div>
 </template>
 
+<script>
+export default {
+  computed: {
+    error() {
+      return this.$store.getters.error;
+    },
+    message() {
+      return this.$store.getters.message;
+    },
+  },
+  watch: {
+    error(fbError) {
+      this.$toast.open({
+        message: fbError.response?.data?.message || 'Произошла ошибка',
+        type: 'error',
+      });
+    },
+    message(fbError) {
+      this.$toast.succes({
+        message: fbError.response?.data?.message,
+      });
+    },
+  },
+};
+</script>
+
 <style lang="scss">
 .empty {
   // .empty__wrapper

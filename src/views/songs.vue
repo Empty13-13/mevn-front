@@ -3,7 +3,7 @@
     <div class="songs__content _container">
       <div class="func-menu">
         <div class="func-menu__line">
-          <h3 class="func-menu__name">Сет-листы</h3>
+          <h3 class="func-menu__name">Песни</h3>
         </div>
         <div class="func-menu__line">
           <div class="func-menu__filters">
@@ -11,12 +11,12 @@
               <li class="func-menu__item-menu">
                 <a href="" class="func-menu__href-menu">Все</a>
               </li>
-              <li class="func-menu__item-menu">
+              <!--<li class="func-menu__item-menu">
                 <a href="" class="func-menu__href-menu _active">Харди-бар(2)</a>
               </li>
               <li class="func-menu__item-menu">
                 <a href="" class="func-menu__href-menu">Хератс-бар(3)</a>
-              </li>
+              </li>-->
             </ul>
           </div>
           <a href="" class="func-menu__add btn">
@@ -33,7 +33,7 @@
           :key="key"
           :title="song.title"
           :lyrics="song.lyrics"
-          :genre="song.genre"
+          :genre="findGenre(song.genre[0])"
         />
 
         <!--<div class="songs__block block-songs">
@@ -113,17 +113,27 @@ export default {
   components: {
     Song,
   },
-  mounted() {
-    this.fetchSongs();
+  async mounted() {
+    await this.fetchSongs();
+    await this
   },
   computed: {
     ...mapGetters({
       songs: 'songs',
+      genre: 'genre',
     }),
   },
   methods: {
+    async findGenre(id) {
+      await this.fetchGenre(id);
+      return this.genre.title;
+    },
+
+    //?VUEX
     ...mapActions({
       fetchSongs: 'fetchSongs',
+      fetchGenre: 'fetchGenre',
+      fetchGenres: 'fetchGenres',
     }),
   },
 };
